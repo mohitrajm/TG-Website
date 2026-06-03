@@ -581,3 +581,61 @@ h2 { font-size: 2.5rem; color: var(--primary-green); }
 .w-100 {
     width: 100%;
 }
+
+/* --- GLOBAL HEADER STYLES --- */
+.global-header {
+    background: white;
+    /* This adds a soft shadow under the header to separate it from the page */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+    position: relative;
+    z-index: 1000; /* Ensures the header stays on top of videos and images */
+}
+
+/* Line 1 Layout */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-logo {
+    height: 50px; /* Adjust this to make your logo bigger or smaller in the nav */
+    width: auto;
+    display: block;
+}
+
+/* Line 2 Layout */
+.header-nav {
+    background: var(--bg-light); /* Uses your existing light grey color */
+    border-top: 1px solid #e0e0e0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centers the links */
+    flex-wrap: wrap; /* Allows links to stack neatly on mobile */
+    gap: 25px;
+    padding: 12px 20px;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-green);
+}
+
+/* Mobile Adjustments for Header */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 15px;
+    }
+}
