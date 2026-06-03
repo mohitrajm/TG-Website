@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Thryve Green</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- 1. HERO SECTION -->
+    <header class="inner-hero bg-green text-white text-center">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p class="hero-subheading">Whether you are looking to supply biomass, purchase briquettes, or partner with us, we would love to hear from you.</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. CONTACT SECTION -->
+        <section class="section bg-light">
+            <div class="container grid-2-col" style="align-items: flex-start;">
+                
+                <!-- Left Column: Contact Information -->
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p class="mt-2">Reach out to us directly via phone or email. Our team is ready to answer your questions and discuss how we can work together.</p>
+                    
+                    <div class="contact-card mt-4">
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:connect@thryvegreen.com" class="contact-link">connect@thryvegreen.com</a></p>
+                    </div>
+
+                    <div class="contact-card mt-3">
+                        <h3>Call Us</h3>
+                        <p><a href="tel:+918885304575" class="contact-link">+91 8885304575</a></p>
+                    </div>
+
+                    <div class="contact-card mt-3">
+                        <h3>Our Facility</h3>
+                        <p>Near Hyderabad, Telangana<br><em>(Exact address to be updated)</em></p>
+                    </div>
+                </div>
+
+                <!-- Right Column: The Form -->
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <!-- Note: The 'action' attribute is where you will paste your Power Automate Webhook URL later -->
+                    <form id="thryveContactForm" class="mt-3" action="YOUR_POWER_AUTOMATE_URL_HERE" method="POST">
+                        
+                        <div class="form-group">
+                            <label for="userType">I am a...</label>
+                            <select id="userType" name="userType" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="farmer">Farmer / FPO (Looking to supply residue)</option>
+                                <option value="business">Business / Industry (Looking to buy briquettes)</option>
+                                <option value="other">Partner / Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name / Company Name *</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Enter your name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address (Optional)</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Village / City *</label>
+                            <input type="text" id="location" name="location" required placeholder="Where are you located?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">How can we help you? *</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your crop residue, fuel needs, or partnership idea..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Auto-select dropdown script based on URL (e.g., ?type=farmer) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const userType = urlParams.get('type');
+            
+            // If there's a type in the URL, select it in the dropdown
+            if (userType === 'farmer' || userType === 'business') {
+                const selectElement = document.getElementById('userType');
+                if (selectElement) {
+                    selectElement.value = userType;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
